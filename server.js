@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGOLAB_BLUE_URI || "mongodb://localhost/week18Populater-NYTIMES";
+var MONGODB_URI = process.env.MONGOLAB_BROWN_URI || "mongodb://localhost/week18Populater-NYTIMES";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
