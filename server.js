@@ -26,19 +26,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/week18Populater-NYTIMES";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI, {
-//       useMongo
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+      useMongoClient: true
+});
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/week18Populater-NYTIMES", {
-  useMongoClient: true
-});
+// mongoose.Promise = Promise;
+// mongoose.connect("mongodb://localhost/week18Populater-NYTIMES", {
+//   useMongoClient: true
+// });
 
 // Routes
 
